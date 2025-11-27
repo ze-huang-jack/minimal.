@@ -1,73 +1,39 @@
-# React + TypeScript + Vite
+# Minimal Blog MVP (Apple Style)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a minimal blog template built with React, Vite, and Tailwind CSS. It features a clean, Apple-inspired design, local Markdown content simulation, and routing.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   `data/posts.ts`: Add your articles here.
+*   `pages/`: Contains the route views.
+*   `components/`: Reusable UI components.
 
-## React Compiler
+## Deployment to Vercel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project is optimized for zero-configuration deployment on Vercel.
 
-## Expanding the ESLint configuration
+**Steps:**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **Push to GitHub/GitLab/Bitbucket:**
+    Ensure this code is pushed to a Git repository.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2.  **Login to Vercel:**
+    Go to [vercel.com](https://vercel.com) and log in.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3.  **Add New Project:**
+    Click "Add New..." > "Project".
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4.  **Import Repository:**
+    Select your Git repository from the list.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+5.  **Configure Project:**
+    *   **Framework Preset:** Vercel should automatically detect `Vite`.
+    *   **Root Directory:** `./` (default)
+    *   **Build Command:** `vite build` (default)
+    *   **Output Directory:** `dist` (default)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+6.  **Deploy:**
+    Click "Deploy". Vercel will build the project and provide a live URL.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Note on Routing:**
+This project uses `HashRouter` (URLs look like `domain.com/#/posts/1`). This ensures the app works perfectly on static hosting services like Vercel or GitHub Pages without needing complex server-side rewrite rules for SPA routing.
