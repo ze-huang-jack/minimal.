@@ -1,0 +1,5 @@
+{
+  "name": "Minimalist Blog MVP",
+  "description": "An Apple-style minimalist blog with Markdown support and routing.",
+  "requestFramePermissions": []
+}
