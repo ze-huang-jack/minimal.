@@ -29,7 +29,7 @@ This project is optimized for zero-configuration deployment on Vercel.
 5.  **Configure Project:**
     *   **Framework Preset:** Vercel should automatically detect `Vite`.
     *   **Root Directory:** `./` (default)
-    *   **Build Command:** `vite build` (default)
+    *   **Build Command:** `npm run build` (default)
     *   **Output Directory:** `dist` (default)
 
 6.  **Deploy:**
